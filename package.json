@@ -1,0 +1,13 @@
+{
+  "name": "alertavecinal-pc2",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "check": "node --check src/domain.js && node --check src/app.js"
+  },
+  "engines": { "node": ">=20" }
+}
+

@@ -1,13 +1,13 @@
--- Alerta Vecinal: registro m�nimo para reportes geolocalizados.
--- No almacena nombres, correos ni tel�fonos en la tabla p�blica.
+-- Alerta Vecinal: registro mínimo para reportes geolocalizados.
+-- No almacena nombres, correos ni teléfonos en la tabla pública.
 create extension if not exists pgcrypto;
 
 create table if not exists public.reports (
   id uuid primary key default gen_random_uuid(),
   title text not null check (char_length(trim(title)) between 8 and 100),
   location text not null check (char_length(trim(location)) between 4 and 120),
-  district text not null check (district in ('Los Olivos','Comas','San Mart�n de Porres','Independencia')),
-  kind text not null check (kind in ('Heces en v�a p�blica','Orina / mal olor','Mascota sin supervisi�n','Otro problema de salubridad')),
+  district text not null check (district in ('Los Olivos','Comas','San Martín de Porres','Independencia')),
+  kind text not null check (kind in ('Heces en vía pública','Orina / mal olor','Mascota sin supervisión','Otro problema de salubridad')),
   lat double precision not null check (lat between -12.2 and -11.7),
   lng double precision not null check (lng between -77.3 and -76.8),
   status text not null default 'open' check (status in ('open','in_progress','resolved')),
@@ -34,7 +34,7 @@ drop policy if exists "Anyone can submit a report" on public.reports;
 create policy "Anyone can submit a report" on public.reports
   for insert to anon, authenticated with check (
     status = 'open'
-    and district in ('Los Olivos','Comas','San Mart�n de Porres','Independencia')
+    and district in ('Los Olivos','Comas','San Martín de Porres','Independencia')
     and lat between -12.2 and -11.7 and lng between -77.3 and -76.8
   );
 
@@ -51,5 +51,4 @@ create policy "Staff can read own staff membership" on public.municipal_staff
   for select to authenticated using (user_id = auth.uid());
 
 -- Alta inicial de personal municipal: ejecutar desde el editor SQL del proyecto
--- despu�s de crear el usuario autorizado en Supabase Auth. No habilitar acceso p�blico a esta tabla.
-
+-- después de crear el usuario autorizado en Supabase Auth. No habilitar acceso público a esta tabla.

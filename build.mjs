@@ -1,0 +1,1 @@
+import {access} from 'node:fs/promises';import {execFileSync} from 'node:child_process';for(const name of ['index.html','style.css','app.mjs','model.mjs'])await access('public/'+name);for(const name of ['app','model'])execFileSync(process.execPath,['--check','public/'+name+'.mjs']);console.log('Distribución estática validada: public/');

@@ -1,1 +1,0 @@
-import {access,readdir} from 'node:fs/promises';import {execFileSync} from 'node:child_process';for(const page of ['index.html','design.css','model.mjs','vault.mjs','ui.mjs'])await access('public/'+page);for(const file of await readdir('public'))if(file.endsWith('.mjs'))execFileSync(process.execPath,['--check','public/'+file]);

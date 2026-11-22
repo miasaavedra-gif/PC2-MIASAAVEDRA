@@ -1,10 +1,10 @@
 export const initial = [
- {id:'ga',name:'Jr. Gamarra',kind:'Calle',stalls:420,places:500,flow:2400,capacity:1800},
+ {id:'ga',name:'Jr. Agustín Gamarra',kind:'Calle',stalls:420,places:500,flow:2400,capacity:1800},
  {id:'hu',name:'Jr. Huánuco',kind:'Calle',stalls:310,places:420,flow:1750,capacity:1600},
  {id:'it',name:'Jr. Italia',kind:'Calle',stalls:180,places:300,flow:1200,capacity:1350},
- {id:'a',name:'Galería A',kind:'Galería',stalls:80,places:240,flow:540,capacity:1000},
- {id:'b',name:'Galería B',kind:'Galería',stalls:120,places:360,flow:780,capacity:1300},
- {id:'c',name:'Galería C',kind:'Galería',stalls:65,places:150,flow:410,capacity:700}
+ {id:'a',name:'Damero Gamarra Plaza',kind:'Galería',stalls:80,places:240,flow:540,capacity:1000},
+ {id:'b',name:'Parque Cánepa',kind:'Galería',stalls:120,places:360,flow:780,capacity:1300},
+ {id:'c',name:'C.C. Carrión',kind:'Galería',stalls:65,places:150,flow:410,capacity:700}
 ];
 export function integer(value,min,max){return Number.isSafeInteger(value)&&value>=min&&value<=max}
 export function validZone(z){

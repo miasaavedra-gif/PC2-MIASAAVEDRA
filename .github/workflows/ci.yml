@@ -1,4 +1,4 @@
-name: Verificación de Ruta Gamarra
+name: Verificación de Gamarra Gemelo Digital
 on: [push, pull_request]
 permissions:
   contents: read
@@ -16,3 +16,4 @@ jobs:
         run: node --test
       - name: Análisis estático y secretos
         run: node security.mjs
+

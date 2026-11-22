@@ -1,1 +1,5 @@
-import {access} from 'node:fs/promises';import {execFileSync} from 'node:child_process';for(const name of ['index.html','style.css','app.mjs','model.mjs'])await access('public/'+name);for(const name of ['app','model'])execFileSync(process.execPath,['--check','public/'+name+'.mjs']);console.log('Distribución estática validada: public/');
+import {readdir,access} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+for(const page of ['index.html','guia.html','market.css','style.css'])await access('public/'+page);
+for(const name of await readdir('public'))if(name.endsWith('.mjs'))execFileSync(process.execPath,['--check','public/'+name]);
+console.log('Validación de la bolsa de turnos y de la guía completada.');
